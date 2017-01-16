@@ -118,19 +118,33 @@ class ViewController: UIViewController, UITextViewDelegate {
             }
         }
         numberArray.append(temp)
-        var index = 0
         if operatorArray.isEmpty {
             return numberArray[0]
         }
         if numberArray.count <= operatorArray.count {
             return 0
         }
+        var i:Int? = 0
+        var j:Int? = 0
         print(numberArray)
         print(operatorArray)
-        while index < operatorArray.count {
-            result = calculate(arg1: numberArray[index], arg2: numberArray[index + 1], op: operatorArray[index])
-            numberArray[index+1] = result
-            index += 1
+        while operatorArray.contains("*") || operatorArray.contains("/") {
+            if (operatorArray.contains("*")){i = operatorArray.index(of: "*")!}
+            if (operatorArray.contains("/")){j = operatorArray.index(of: "/")!}
+            if (j != 0 && i != 0) {if (j! < i!) {i = j}}
+            result = calculate(arg1: numberArray[i!], arg2: numberArray[i! + 1], op: operatorArray[i!])
+            numberArray[i!+1] = result
+            numberArray.remove(at: i!)
+            operatorArray.remove(at: i!)
+        }
+        while operatorArray.contains("+") || operatorArray.contains("-") {
+            if (operatorArray.contains("+")){i = operatorArray.index(of: "+")!}
+            if (operatorArray.contains("-")){j = operatorArray.index(of: "-")!}
+            if (j != 0 && i != 0) {if (j! < i!) {i = j}}
+            result = calculate(arg1: numberArray[i!], arg2: numberArray[i! + 1], op: operatorArray[i!])
+            numberArray[i!+1] = result
+            numberArray.remove(at: i!)
+            operatorArray.remove(at: i!)
         }
         return result
     }
