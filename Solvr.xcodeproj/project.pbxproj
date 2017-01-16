@@ -34,17 +34,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		43BCE95E1E2C3063004DFB7D /* Line Based Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Line Based Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		43BCE95E1E2C3063004DFB7D /* Solvr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Solvr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43BCE9611E2C3063004DFB7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43BCE9631E2C3063004DFB7D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		43BCE9661E2C3063004DFB7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		43BCE9681E2C3063004DFB7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43BCE96B1E2C3063004DFB7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		43BCE96D1E2C3063004DFB7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		43BCE9721E2C3063004DFB7D /* Line Based CalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Line Based CalculatorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		43BCE9721E2C3063004DFB7D /* SolvrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SolvrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		43BCE9761E2C3063004DFB7D /* Line_Based_CalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line_Based_CalculatorTests.swift; sourceTree = "<group>"; };
 		43BCE9781E2C3063004DFB7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		43BCE97D1E2C3063004DFB7D /* Line Based CalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Line Based CalculatorUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		43BCE97D1E2C3063004DFB7D /* SolvrUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SolvrUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		43BCE9811E2C3063004DFB7D /* Line_Based_CalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line_Based_CalculatorUITests.swift; sourceTree = "<group>"; };
 		43BCE9831E2C3063004DFB7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,9 +87,9 @@
 		43BCE95F1E2C3063004DFB7D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				43BCE95E1E2C3063004DFB7D /* Line Based Calculator.app */,
-				43BCE9721E2C3063004DFB7D /* Line Based CalculatorTests.xctest */,
-				43BCE97D1E2C3063004DFB7D /* Line Based CalculatorUITests.xctest */,
+				43BCE95E1E2C3063004DFB7D /* Solvr.app */,
+				43BCE9721E2C3063004DFB7D /* SolvrTests.xctest */,
+				43BCE97D1E2C3063004DFB7D /* SolvrUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -128,9 +128,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		43BCE95D1E2C3063004DFB7D /* Line Based Calculator */ = {
+		43BCE95D1E2C3063004DFB7D /* Solvr */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 43BCE9861E2C3063004DFB7D /* Build configuration list for PBXNativeTarget "Line Based Calculator" */;
+			buildConfigurationList = 43BCE9861E2C3063004DFB7D /* Build configuration list for PBXNativeTarget "Solvr" */;
 			buildPhases = (
 				43BCE95A1E2C3063004DFB7D /* Sources */,
 				43BCE95B1E2C3063004DFB7D /* Frameworks */,
@@ -140,14 +140,14 @@
 			);
 			dependencies = (
 			);
-			name = "Line Based Calculator";
+			name = Solvr;
 			productName = "Line Based Calculator";
-			productReference = 43BCE95E1E2C3063004DFB7D /* Line Based Calculator.app */;
+			productReference = 43BCE95E1E2C3063004DFB7D /* Solvr.app */;
 			productType = "com.apple.product-type.application";
 		};
-		43BCE9711E2C3063004DFB7D /* Line Based CalculatorTests */ = {
+		43BCE9711E2C3063004DFB7D /* SolvrTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 43BCE9891E2C3063004DFB7D /* Build configuration list for PBXNativeTarget "Line Based CalculatorTests" */;
+			buildConfigurationList = 43BCE9891E2C3063004DFB7D /* Build configuration list for PBXNativeTarget "SolvrTests" */;
 			buildPhases = (
 				43BCE96E1E2C3063004DFB7D /* Sources */,
 				43BCE96F1E2C3063004DFB7D /* Frameworks */,
@@ -158,14 +158,14 @@
 			dependencies = (
 				43BCE9741E2C3063004DFB7D /* PBXTargetDependency */,
 			);
-			name = "Line Based CalculatorTests";
+			name = SolvrTests;
 			productName = "Line Based CalculatorTests";
-			productReference = 43BCE9721E2C3063004DFB7D /* Line Based CalculatorTests.xctest */;
+			productReference = 43BCE9721E2C3063004DFB7D /* SolvrTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		43BCE97C1E2C3063004DFB7D /* Line Based CalculatorUITests */ = {
+		43BCE97C1E2C3063004DFB7D /* SolvrUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 43BCE98C1E2C3063004DFB7D /* Build configuration list for PBXNativeTarget "Line Based CalculatorUITests" */;
+			buildConfigurationList = 43BCE98C1E2C3063004DFB7D /* Build configuration list for PBXNativeTarget "SolvrUITests" */;
 			buildPhases = (
 				43BCE9791E2C3063004DFB7D /* Sources */,
 				43BCE97A1E2C3063004DFB7D /* Frameworks */,
@@ -176,9 +176,9 @@
 			dependencies = (
 				43BCE97F1E2C3063004DFB7D /* PBXTargetDependency */,
 			);
-			name = "Line Based CalculatorUITests";
+			name = SolvrUITests;
 			productName = "Line Based CalculatorUITests";
-			productReference = 43BCE97D1E2C3063004DFB7D /* Line Based CalculatorUITests.xctest */;
+			productReference = 43BCE97D1E2C3063004DFB7D /* SolvrUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -210,7 +210,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 43BCE9591E2C3063004DFB7D /* Build configuration list for PBXProject "Line Based Calculator" */;
+			buildConfigurationList = 43BCE9591E2C3063004DFB7D /* Build configuration list for PBXProject "Solvr" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -223,9 +223,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				43BCE95D1E2C3063004DFB7D /* Line Based Calculator */,
-				43BCE9711E2C3063004DFB7D /* Line Based CalculatorTests */,
-				43BCE97C1E2C3063004DFB7D /* Line Based CalculatorUITests */,
+				43BCE95D1E2C3063004DFB7D /* Solvr */,
+				43BCE9711E2C3063004DFB7D /* SolvrTests */,
+				43BCE97C1E2C3063004DFB7D /* SolvrUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -288,12 +288,12 @@
 /* Begin PBXTargetDependency section */
 		43BCE9741E2C3063004DFB7D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 43BCE95D1E2C3063004DFB7D /* Line Based Calculator */;
+			target = 43BCE95D1E2C3063004DFB7D /* Solvr */;
 			targetProxy = 43BCE9731E2C3063004DFB7D /* PBXContainerItemProxy */;
 		};
 		43BCE97F1E2C3063004DFB7D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 43BCE95D1E2C3063004DFB7D /* Line Based Calculator */;
+			target = 43BCE95D1E2C3063004DFB7D /* Solvr */;
 			targetProxy = 43BCE97E1E2C3063004DFB7D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -418,7 +418,7 @@
 				DEVELOPMENT_TEAM = BK4QFR4NHH;
 				INFOPLIST_FILE = "Line Based Calculator/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.scott246.Line-Based-Calculator";
+				PRODUCT_BUNDLE_IDENTIFIER = com.scott246.Solvr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -431,7 +431,7 @@
 				DEVELOPMENT_TEAM = BK4QFR4NHH;
 				INFOPLIST_FILE = "Line Based Calculator/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.scott246.Line-Based-Calculator";
+				PRODUCT_BUNDLE_IDENTIFIER = com.scott246.Solvr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -448,7 +448,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.scott246.Line-Based-CalculatorTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Line Based Calculator.app/Line Based Calculator";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Solvr.app/Solvr";
 			};
 			name = Debug;
 		};
@@ -463,7 +463,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.scott246.Line-Based-CalculatorTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Line Based Calculator.app/Line Based Calculator";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Solvr.app/Solvr";
 			};
 			name = Release;
 		};
@@ -498,7 +498,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		43BCE9591E2C3063004DFB7D /* Build configuration list for PBXProject "Line Based Calculator" */ = {
+		43BCE9591E2C3063004DFB7D /* Build configuration list for PBXProject "Solvr" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				43BCE9841E2C3063004DFB7D /* Debug */,
@@ -507,29 +507,32 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		43BCE9861E2C3063004DFB7D /* Build configuration list for PBXNativeTarget "Line Based Calculator" */ = {
+		43BCE9861E2C3063004DFB7D /* Build configuration list for PBXNativeTarget "Solvr" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				43BCE9871E2C3063004DFB7D /* Debug */,
 				43BCE9881E2C3063004DFB7D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		43BCE9891E2C3063004DFB7D /* Build configuration list for PBXNativeTarget "Line Based CalculatorTests" */ = {
+		43BCE9891E2C3063004DFB7D /* Build configuration list for PBXNativeTarget "SolvrTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				43BCE98A1E2C3063004DFB7D /* Debug */,
 				43BCE98B1E2C3063004DFB7D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		43BCE98C1E2C3063004DFB7D /* Build configuration list for PBXNativeTarget "Line Based CalculatorUITests" */ = {
+		43BCE98C1E2C3063004DFB7D /* Build configuration list for PBXNativeTarget "SolvrUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				43BCE98D1E2C3063004DFB7D /* Debug */,
 				43BCE98E1E2C3063004DFB7D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

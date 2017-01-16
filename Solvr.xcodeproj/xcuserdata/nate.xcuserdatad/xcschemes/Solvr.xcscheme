@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "43BCE95D1E2C3063004DFB7D"
-               BuildableName = "Line Based Calculator.app"
-               BlueprintName = "Line Based Calculator"
-               ReferencedContainer = "container:Line Based Calculator.xcodeproj">
+               BuildableName = "Solvr.app"
+               BlueprintName = "Solvr"
+               ReferencedContainer = "container:Solvr.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "43BCE9711E2C3063004DFB7D"
-               BuildableName = "Line Based CalculatorTests.xctest"
-               BlueprintName = "Line Based CalculatorTests"
-               ReferencedContainer = "container:Line Based Calculator.xcodeproj">
+               BuildableName = "SolvrTests.xctest"
+               BlueprintName = "SolvrTests"
+               ReferencedContainer = "container:Solvr.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "43BCE97C1E2C3063004DFB7D"
-               BuildableName = "Line Based CalculatorUITests.xctest"
-               BlueprintName = "Line Based CalculatorUITests"
-               ReferencedContainer = "container:Line Based Calculator.xcodeproj">
+               BuildableName = "SolvrUITests.xctest"
+               BlueprintName = "SolvrUITests"
+               ReferencedContainer = "container:Solvr.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -53,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "43BCE95D1E2C3063004DFB7D"
-            BuildableName = "Line Based Calculator.app"
-            BlueprintName = "Line Based Calculator"
-            ReferencedContainer = "container:Line Based Calculator.xcodeproj">
+            BuildableName = "Solvr.app"
+            BlueprintName = "Solvr"
+            ReferencedContainer = "container:Solvr.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "43BCE95D1E2C3063004DFB7D"
-            BuildableName = "Line Based Calculator.app"
-            BlueprintName = "Line Based Calculator"
-            ReferencedContainer = "container:Line Based Calculator.xcodeproj">
+            BuildableName = "Solvr.app"
+            BlueprintName = "Solvr"
+            ReferencedContainer = "container:Solvr.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -95,9 +95,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "43BCE95D1E2C3063004DFB7D"
-            BuildableName = "Line Based Calculator.app"
-            BlueprintName = "Line Based Calculator"
-            ReferencedContainer = "container:Line Based Calculator.xcodeproj">
+            BuildableName = "Solvr.app"
+            BlueprintName = "Solvr"
+            ReferencedContainer = "container:Solvr.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

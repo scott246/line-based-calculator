@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Line_Based_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Solvr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -28,31 +28,32 @@
                                     <constraint firstAttribute="height" constant="64" id="8mD-Ao-ajw"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="Title" id="4fQ-P5-HoM"/>
+                                    <navigationItem title="Solvr" id="4fQ-P5-HoM">
+                                        <barButtonItem key="backBarButtonItem" title="Instructions" id="NTf-tC-GU2">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Vg-eN-UMu">
                                 <rect key="frame" x="16" y="80" width="343" height="571"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Pwb-Ow-zjT">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="571"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="Pwb-Ow-zjT">
+                                        <rect key="frame" x="0.0" y="0.0" width="201" height="571"/>
                                         <color key="backgroundColor" red="0.27775942139999998" green="0.27775942139999998" blue="0.27775942139999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="Pwb-Ow-zjT" secondAttribute="height" multiplier="3:4" id="1hL-Ch-xxJ"/>
-                                        </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" keyboardAppearance="alert"/>
                                     </textView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMU-Zv-Vc6">
-                                        <rect key="frame" x="200" y="0.0" width="143" height="571"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMU-Zv-Vc6">
+                                        <rect key="frame" x="201" y="0.0" width="142" height="571"/>
                                         <color key="backgroundColor" red="0.27775942139999998" green="0.27775942139999998" blue="0.27775942139999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="PMU-Zv-Vc6" secondAttribute="height" multiplier="1:4" id="tNs-dw-Ocm"/>
                                         </constraints>
                                         <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
                                     </textView>
                                 </subviews>
                             </stackView>
@@ -70,7 +71,7 @@
                     </view>
                     <connections>
                         <outlet property="input" destination="Pwb-Ow-zjT" id="nzx-GM-j3E"/>
-                        <outlet property="output" destination="PMU-Zv-Vc6" id="CzB-dm-eLQ"/>
+                        <outlet property="output" destination="PMU-Zv-Vc6" id="eww-pC-4pU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
