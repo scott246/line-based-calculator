@@ -15,7 +15,7 @@
     logarithms
     trigonometric functions
     square roots
- add support for negative numbers and decimals
+ add support for different bases of numbers
  add multi-line ability
  add equation solving ability
  add conversion ability
@@ -53,98 +53,149 @@ class ViewController: UIViewController, UITextViewDelegate {
         }
     }
     
-    func calculate(arg1: Double, arg2: Double, op: String) -> Double {
+    func calculate(arg1: Double, arg2: Double?, op: String) -> Double {
         switch(op){
             case "+":
-                return arg1 + arg2
+                return arg1 + arg2!
             case "-":
-                return arg1 - arg2
+                return arg1 - arg2!
             case "*":
-                return arg1 * arg2
+                return arg1 * arg2!
             case "/":
-                return arg1 / arg2
+                return arg1 / arg2!
             case "%":
-                return arg1.truncatingRemainder(dividingBy: arg2)
+                return arg1.truncatingRemainder(dividingBy: arg2!)
             case "^":
-                return pow(arg1, arg2)
+                return pow(arg1, arg2!)
             default:
                 return 0
         }
     }
     
     var depth = 0
+    var isNegative:Bool = false
+    var isDecimal:Bool = false
     
     func evaluate(i1: String.Index, i2: String.Index) -> Double{
         print("==EVALUATING==")
         print(expressionStub.substring(with: i1..<i2))
+        var lastchar:UInt32 = 0
+        if (i1 != i2){
+            lastchar = (expressionStub.substring(with: i1..<i2).unicodeScalars.last?.value)!
+        }
+        if lastchar == 43 || lastchar == 45 || lastchar == 42 || lastchar == 47 || lastchar == 94 { //last character is an operator
+            return Double.nan
+        }
         var numberArray: [Double] = []
         var operatorArray: [String] = []
-        var temp:Double = 0
+        var temp:String = "0"
+//        var decTemp:Double = 0.0
+//        var decimalPlaces: Double = 10
         var prevCVal:UInt32 = 0
+        
         expressionStub = expressionStub.substring(with: i1..<i2)
 
         for c in expressionStub.unicodeScalars {
-            if c.value >= 48 && c.value <= 57 { //numbers
-                if prevCVal >= 48 && prevCVal <= 57 {
-                    temp *= 10
-                    temp += Double(c.value - 48)
-                    prevCVal = c.value
+//            if c.value >= 48 && c.value <= 57 { //numbers
+//                if (prevCVal >= 48 && prevCVal <= 57) || prevCVal == 46 {
+//                    if prevCVal == 46 {isDecimal = true}
+//                    if !expressionStub.contains(".") {isDecimal = false}
+//                    if (!isDecimal){
+//                        temp *= 10
+//                        temp += Double(c.value - 48)
+//                        prevCVal = c.value
+//                    }
+//                    else {
+//                        temp = Double(Int(temp))
+//                        print("truncating")
+//                        print(temp)
+//                        decTemp += (1/(decimalPlaces)) * Double(c.value - 48)
+//                        decimalPlaces *= 10
+//                        print("decTemp")
+//                        print(decTemp)
+//                        temp += decTemp
+//                        print("adding decimal to double")
+//                        print(temp)
+//                        prevCVal = c.value
+//                    }
+//                }
+//                else {
+//                    temp += Double(c.value - 48)
+//                    prevCVal = c.value
+//                }
+//            }
+//            else if c.value == 46 { //. sign
+//                prevCVal = c.value
+//            }
+            
+            if c.value >= 48 && c.value <= 57 || c.value == 46 {
+                if prevCVal >= 48 && prevCVal <= 57 || prevCVal == 46 {
+                    numberArray.removeLast()
                 }
-                else {
-                    temp += Double(c.value - 48)
-                    prevCVal = c.value
-                }
+                temp = temp + String(c)
+                numberArray.append(Double(temp)!)
+                prevCVal = c.value
             }
             else if c.value == 43 { //+ sign
                 if ((prevCVal >= 48 && prevCVal <= 57)){
-                    numberArray.append(temp)
-                    temp = 0
+                    if (!isNegative) {numberArray.removeLast(); numberArray.append(Double(temp)!)}
+                    else {numberArray.removeLast(); numberArray.append(-Double(temp)!); isNegative = false}
+                    temp = "0"
                     prevCVal = c.value
                 }
                 operatorArray.append("+")
             }
             else if c.value == 45 { //- sign
-                if ((prevCVal >= 48 && prevCVal <= 57)){
-                    numberArray.append(temp)
-                    temp = 0
+                if ((prevCVal >= 48 && prevCVal <= 57 || prevCVal == 41)){
+                    if (!isNegative) {numberArray.removeLast(); numberArray.append(Double(temp)!)}
+                    else {numberArray.removeLast(); numberArray.append(-Double(temp)!); isNegative = false}
+                    temp = "0"
                     prevCVal = c.value
+                    operatorArray.append("-")
                 }
-                operatorArray.append("-")
+                else {
+                    isNegative = true
+                }
             }
             else if c.value == 42 { //* sign
                 if ((prevCVal >= 48 && prevCVal <= 57)){
-                    numberArray.append(temp)
-                    temp = 0
+                    if (!isNegative) {numberArray.removeLast(); numberArray.append(Double(temp)!)}
+                    else {numberArray.removeLast(); numberArray.append(-Double(temp)!); isNegative = false}
+                    temp = "0"
                     prevCVal = c.value
                 }
                 operatorArray.append("*")
             }
             else if c.value == 47 { //(/) sign
                 if ((prevCVal >= 48 && prevCVal <= 57)){
-                    numberArray.append(temp)
-                    temp = 0
+                    if (!isNegative) {numberArray.removeLast(); numberArray.append(Double(temp)!)}
+                    else {numberArray.removeLast(); numberArray.append(-Double(temp)!); isNegative = false}
+                    temp = "0"
                     prevCVal = c.value
                 }
                 operatorArray.append("/")
             }
             else if c.value == 37 { //% sign
                 if ((prevCVal >= 48 && prevCVal <= 57)){
-                    numberArray.append(temp)
-                    temp = 0
+                    if (!isNegative) {numberArray.removeLast(); numberArray.append(Double(temp)!)}
+                    else {numberArray.removeLast(); numberArray.append(-Double(temp)!); isNegative = false}
+                    temp = "0"
                     prevCVal = c.value
                 }
                 operatorArray.append("%")
             }
             else if c.value == 94 { //^ sign
                 if ((prevCVal >= 48 && prevCVal <= 57)){
-                    numberArray.append(temp)
-                    temp = 0
+                    if (!isNegative) {numberArray.removeLast(); numberArray.append(Double(temp)!)}
+                    else {numberArray.removeLast(); numberArray.append(-Double(temp)!); isNegative = false}
+                    temp = "0"
                     prevCVal = c.value
                 }
                 operatorArray.append("^")
             }
         }
-        numberArray.append(temp)
+        if (!isNegative) { if !numberArray.isEmpty{numberArray.removeLast()}; numberArray.append(Double(temp)!)}
+        else {if !numberArray.isEmpty{numberArray.removeLast()}; numberArray.append(-Double(temp)!); isNegative = false}
         print(numberArray)
         print(operatorArray)
         if operatorArray.isEmpty {
