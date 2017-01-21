@@ -39,11 +39,12 @@ class ViewController: UIViewController, UITextViewDelegate {
         input.delegate = self
     }
     
-    var expression = String()
-    var expressionStub = String()
+    var expression = String()       //entire expression
+    var expressionStub = String()   //part of the expression, like between parentheses
     
-    var result: Double = 0
+    var result: Double = 0          //final result
     
+    //add a character to the end of the entire expression
     func addToExpression(character:String){
         if character == "" && !expression.isEmpty {//backspace
             expression.remove(at: expression.index(before: expression.endIndex))
@@ -53,6 +54,18 @@ class ViewController: UIViewController, UITextViewDelegate {
         }
     }
     
+    //factorial calculator
+    func factorial(arg: Double) -> Double{
+        if (arg > 20) {
+            return Double.nan
+        }
+        if (arg == 1 || arg == 0) {
+            return 1
+        }
+        return factorial(arg: arg-1) * factorial(arg: arg-2)
+    }
+    
+    //calculate a given one or two argument operation (arg1 op (arg2?))
     func calculate(arg1: Double, arg2: Double?, op: String) -> Double {
         switch(op){
             case "+":
@@ -67,6 +80,8 @@ class ViewController: UIViewController, UITextViewDelegate {
                 return arg1.truncatingRemainder(dividingBy: arg2!)
             case "^":
                 return pow(arg1, arg2!)
+            case "fact":
+                return factorial(arg: arg1)
             default:
                 return 0
         }
@@ -76,9 +91,12 @@ class ViewController: UIViewController, UITextViewDelegate {
     var isNegative:Bool = false
     var isDecimal:Bool = false
     
+    //evaluate the expression from index i1 to i2
     func evaluate(i1: String.Index, i2: String.Index) -> Double{
         print("==EVALUATING==")
         print(expressionStub.substring(with: i1..<i2))
+        
+        //if the last character is an operator, return nan
         var lastchar:UInt32 = 0
         if (i1 != i2){
             lastchar = (expressionStub.substring(with: i1..<i2).unicodeScalars.last?.value)!
@@ -86,48 +104,24 @@ class ViewController: UIViewController, UITextViewDelegate {
         if lastchar == 43 || lastchar == 45 || lastchar == 42 || lastchar == 47 || lastchar == 94 { //last character is an operator
             return Double.nan
         }
-        var numberArray: [Double] = []
-        var operatorArray: [String] = []
+        
+        //if the expression contains "fact(xxx)", find that and deal with that first
+        while expressionStub.contains("fact"){
+            break;
+        }
+        
+        var numberArray: [Double] = []          //array of numbers in the expression
+        var operatorArray: [String] = []        //array of operators in the expression
         var temp:String = "0"
 //        var decTemp:Double = 0.0
 //        var decimalPlaces: Double = 10
         var prevCVal:UInt32 = 0
         
         expressionStub = expressionStub.substring(with: i1..<i2)
-
+        
+        //go through each character in the expression
         for c in expressionStub.unicodeScalars {
-//            if c.value >= 48 && c.value <= 57 { //numbers
-//                if (prevCVal >= 48 && prevCVal <= 57) || prevCVal == 46 {
-//                    if prevCVal == 46 {isDecimal = true}
-//                    if !expressionStub.contains(".") {isDecimal = false}
-//                    if (!isDecimal){
-//                        temp *= 10
-//                        temp += Double(c.value - 48)
-//                        prevCVal = c.value
-//                    }
-//                    else {
-//                        temp = Double(Int(temp))
-//                        print("truncating")
-//                        print(temp)
-//                        decTemp += (1/(decimalPlaces)) * Double(c.value - 48)
-//                        decimalPlaces *= 10
-//                        print("decTemp")
-//                        print(decTemp)
-//                        temp += decTemp
-//                        print("adding decimal to double")
-//                        print(temp)
-//                        prevCVal = c.value
-//                    }
-//                }
-//                else {
-//                    temp += Double(c.value - 48)
-//                    prevCVal = c.value
-//                }
-//            }
-//            else if c.value == 46 { //. sign
-//                prevCVal = c.value
-//            }
-            
+            // if the value is a number or decimal place
             if c.value >= 48 && c.value <= 57 || c.value == 46 {
                 if prevCVal >= 48 && prevCVal <= 57 || prevCVal == 46 {
                     numberArray.removeLast()
@@ -136,6 +130,7 @@ class ViewController: UIViewController, UITextViewDelegate {
                 numberArray.append(Double(temp)!)
                 prevCVal = c.value
             }
+            
             else if c.value == 43 { //+ sign
                 if ((prevCVal >= 48 && prevCVal <= 57)){
                     if (!isNegative) {numberArray.removeLast(); numberArray.append(Double(temp)!)}
@@ -198,6 +193,8 @@ class ViewController: UIViewController, UITextViewDelegate {
         else {if !numberArray.isEmpty{numberArray.removeLast()}; numberArray.append(-Double(temp)!); isNegative = false}
         print(numberArray)
         print(operatorArray)
+        
+        // if there are no operators, return the first number in the number array
         if operatorArray.isEmpty {
             print("~Result: ")
             print(numberArray[0])
@@ -209,13 +206,10 @@ class ViewController: UIViewController, UITextViewDelegate {
         var k:Int? = 0
         var a:Int? = 0
         var s:Int? = 0
-        var opCounts:[String:Int] = [:]
         
-        for item in operatorArray {
-            opCounts[item] = (opCounts[item] ?? 0) + 1
-        }
+        //FOLLOW ORDER OF OPERATIONS
         
-        print(opCounts)
+        //if the expression has an ^, deal with that first...
         while operatorArray.contains("^") {
             e = operatorArray.index(of: "^")
             result = calculate(arg1: numberArray[e!], arg2: numberArray[e! + 1], op: operatorArray[e!])
@@ -223,6 +217,8 @@ class ViewController: UIViewController, UITextViewDelegate {
             numberArray.remove(at: e!)
             operatorArray.remove(at: e!)
         }
+        
+        //... if the expression has *, /, or %, deal with that next...
         while operatorArray.contains("*") || operatorArray.contains("/") || operatorArray.contains("%") {
             if (operatorArray.contains("*")){i = operatorArray.index(of: "*")!}
             if (operatorArray.contains("/")){j = operatorArray.index(of: "/")!}
@@ -242,6 +238,8 @@ class ViewController: UIViewController, UITextViewDelegate {
             numberArray.remove(at: i!)
             operatorArray.remove(at: i!)
         }
+        
+        //... finally, deal with the + and -'s.
         while operatorArray.contains("+") || operatorArray.contains("-") {
             if (operatorArray.contains("+")){a = operatorArray.index(of: "+")!}
             if (operatorArray.contains("-")){s = operatorArray.index(of: "-")!}
@@ -251,6 +249,7 @@ class ViewController: UIViewController, UITextViewDelegate {
             numberArray.remove(at: a!)
             operatorArray.remove(at: a!)
         }
+        
         print("~Result: ")
         print(result)
         print(numberArray)
@@ -258,6 +257,7 @@ class ViewController: UIViewController, UITextViewDelegate {
         return result
     }
     
+    //whenever the input is changed, adjust the answer accordingly
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         addToExpression(character: text)
         expressionStub = expression
