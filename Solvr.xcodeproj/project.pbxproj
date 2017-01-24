@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		437E0DB51E33E69600C490CB /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437E0DB41E33E69600C490CB /* Stack.swift */; };
+		437E0DB91E36C9E900C490CB /* Evaluate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437E0DB81E36C9E900C490CB /* Evaluate.swift */; };
+		437E0DBB1E36CFC900C490CB /* ErrorCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437E0DBA1E36CFC900C490CB /* ErrorCheck.swift */; };
 		43BCE9621E2C3063004DFB7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BCE9611E2C3063004DFB7D /* AppDelegate.swift */; };
 		43BCE9641E2C3063004DFB7D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BCE9631E2C3063004DFB7D /* ViewController.swift */; };
 		43BCE9671E2C3063004DFB7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43BCE9651E2C3063004DFB7D /* Main.storyboard */; };
@@ -34,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		437E0DB41E33E69600C490CB /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		437E0DB81E36C9E900C490CB /* Evaluate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Evaluate.swift; sourceTree = "<group>"; };
+		437E0DBA1E36CFC900C490CB /* ErrorCheck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorCheck.swift; sourceTree = "<group>"; };
 		43BCE95E1E2C3063004DFB7D /* Solvr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Solvr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43BCE9611E2C3063004DFB7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43BCE9631E2C3063004DFB7D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +109,9 @@
 				43BCE9681E2C3063004DFB7D /* Assets.xcassets */,
 				43BCE96A1E2C3063004DFB7D /* LaunchScreen.storyboard */,
 				43BCE96D1E2C3063004DFB7D /* Info.plist */,
+				437E0DB41E33E69600C490CB /* Stack.swift */,
+				437E0DB81E36C9E900C490CB /* Evaluate.swift */,
+				437E0DBA1E36CFC900C490CB /* ErrorCheck.swift */,
 			);
 			path = "Line Based Calculator";
 			sourceTree = "<group>";
@@ -263,6 +272,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				43BCE9641E2C3063004DFB7D /* ViewController.swift in Sources */,
+				437E0DB51E33E69600C490CB /* Stack.swift in Sources */,
+				437E0DB91E36C9E900C490CB /* Evaluate.swift in Sources */,
+				437E0DBB1E36CFC900C490CB /* ErrorCheck.swift in Sources */,
 				43BCE9621E2C3063004DFB7D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
