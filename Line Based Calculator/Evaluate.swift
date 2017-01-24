@@ -58,6 +58,10 @@ class Evaluate {
                 
                 stack.push(item: char)
                 break
+            case "!":
+                postfix.append(String(calculate(arg1: Double(tempNumber)!, arg2: 1337, op: "!")))
+                tempNumber = ""
+                break
             case "(":
                 if !tempNumber.isEmpty {
                     postfix.append(tempNumber)
@@ -102,13 +106,13 @@ class Evaluate {
     
     //factorial calculator
     func factorial(arg: Double) -> Double{
-        if (arg > 20) {
-            return Double.nan
-        }
-        if (arg == 1 || arg == 0) {
+        //if (arg > 20) {
+        //    return Double.nan
+        //}
+        if (arg == 0) {
             return 1
         }
-        return factorial(arg: arg-1) * factorial(arg: arg-2)
+        return arg * factorial(arg: arg-1)
     }
     
     //calculate a given one or two argument operation (arg1 op (arg2?))
@@ -127,7 +131,7 @@ class Evaluate {
             return arg1.truncatingRemainder(dividingBy: arg2!)
         case "^":
             return pow(arg1, arg2!)
-        case "fact":
+        case "!":
             return factorial(arg: arg1)
         default:
             return 0

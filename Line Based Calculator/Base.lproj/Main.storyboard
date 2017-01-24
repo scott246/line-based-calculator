@@ -52,7 +52,7 @@
                                             <constraint firstAttribute="width" secondItem="PMU-Zv-Vc6" secondAttribute="height" multiplier="1:4" id="tNs-dw-Ocm"/>
                                         </constraints>
                                         <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textView>
                                 </subviews>

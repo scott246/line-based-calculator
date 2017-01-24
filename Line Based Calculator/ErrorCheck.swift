@@ -26,7 +26,7 @@ class ErrorCheck {
             switch(item.value){
             case 48...57:               //number
                 break
-            case 37,42,43,45,47,94:     //operator
+            case 37,42,43,45,47,94,33:     //operator
                 break
             case 40,41,91,93,123,125:   //parenthesis, bracket, brace
                 break
