@@ -40,24 +40,12 @@ class ViewController: UIViewController, UITextViewDelegate {
     
     var expression = String()       //entire expression
     
-    //add a character to the end of the entire expression
-    func addToExpression(character:String){
-        if character == "" && !expression.isEmpty {//backspace
-            expression.remove(at: expression.index(before: expression.endIndex))
-        }
-        else {
-            expression += character
-        }
-    }
-
-    
     //whenever the input is changed, adjust the answer accordingly
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+    func textViewDidChange(_ textView: UITextView) {
         print("~~~~INPUT RECEIVED~~~~")
-        addToExpression(character: text)
+        expression = textView.text
         if expression.isEmpty {
             output.text = String(Double(0))
-            return true
         }
         let ec = ErrorCheck()
         if (ec.checkForErrors(infix: expression)) {
@@ -68,7 +56,6 @@ class ViewController: UIViewController, UITextViewDelegate {
         }
         
         print("~~~~PARSING COMPLETE~~~~")
-        return true
     }
 
     override func didReceiveMemoryWarning() {
