@@ -10,10 +10,10 @@
 /*
  TODO:
  add more functions
-    factorial
     logarithms
     trigonometric functions
     square roots
+ add support for negative numbers
  add support for different bases of numbers
  add multi-line ability
  add equation solving ability
@@ -55,6 +55,10 @@ class ViewController: UIViewController, UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         print("~~~~INPUT RECEIVED~~~~")
         addToExpression(character: text)
+        if expression.isEmpty {
+            output.text = String(Double(0))
+            return true
+        }
         let ec = ErrorCheck()
         if (ec.checkForErrors(infix: expression)) {
             output.text = String(Double.nan)

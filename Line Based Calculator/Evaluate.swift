@@ -48,12 +48,10 @@ class Evaluate {
                     postfix.append(tempNumber)
                     tempNumber = ""
                 }
-                if (stack.peek() != nil){
-                    while (isOperator(symbol: stack.peek()!) && ((isLeftAssociative(symbol: char) && getPrecedence(symbol: char) <= getPrecedence(symbol: stack.peek()!)) || (isRightAssociative(symbol: char) && (getPrecedence(symbol: char) < getPrecedence(symbol: stack.peek()!))))) {
-                        var temp:String = ""
-                        temp.append(stack.pop()!)
-                        postfix.append(temp)
-                    }
+                while (stack.peek() != nil && isOperator(symbol: stack.peek()!) && ((isLeftAssociative(symbol: char) && getPrecedence(symbol: char) <= getPrecedence(symbol: stack.peek()!)) || (isRightAssociative(symbol: char) && (getPrecedence(symbol: char) < getPrecedence(symbol: stack.peek()!))))) {
+                    var temp:String = ""
+                    temp.append(stack.pop()!)
+                    postfix.append(temp)
                 }
                 
                 stack.push(item: char)
@@ -120,17 +118,17 @@ class Evaluate {
         if arg2 == nil {return arg1}
         switch(op){
         case "+":
-            return arg1 + arg2!
+            return arg2! + arg1
         case "-":
-            return arg1 - arg2!
+            return arg2! - arg1
         case "*":
-            return arg1 * arg2!
+            return arg2! * arg1
         case "/":
-            return arg1 / arg2!
+            return arg2! / arg1
         case "%":
-            return arg1.truncatingRemainder(dividingBy: arg2!)
+            return arg2!.truncatingRemainder(dividingBy: arg1)
         case "^":
-            return pow(arg1, arg2!)
+            return pow(arg2!, arg1)
         case "!":
             return factorial(arg: arg1)
         default:

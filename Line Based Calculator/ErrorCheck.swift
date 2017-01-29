@@ -9,9 +9,11 @@
 import Foundation
 
 class ErrorCheck {
+    var e = Evaluate()
     
     //check the string for errors
     func checkForErrors(infix: String) -> Bool {
+        
         //check for parentheses/bracket/brace errors
         let leftPar = infix.components(separatedBy: "(")
         let leftBrace = infix.components(separatedBy: "{")
@@ -19,21 +21,36 @@ class ErrorCheck {
         let rightPar = infix.components(separatedBy: ")")
         let rightBrace = infix.components(separatedBy: "}")
         let rightBracket = infix.components(separatedBy: "]")
-        if leftPar.count + leftBrace.count + leftBracket.count != rightPar.count + rightBrace.count + rightBracket.count {return true}
+        if leftPar.count + leftBrace.count + leftBracket.count != rightPar.count + rightBrace.count + rightBracket.count {
+            return true
+        }
         
+        var previousItem = ""
         //check for illegal operations
-        for item in infix.unicodeScalars{
-            switch(item.value){
-            case 48...57:               //number
+        for item in infix.characters{
+            
+            switch(item){
+            case "0"..."9",".":               //number
                 break
-            case 37,42,43,45,47,94,33:     //operator
+            case "+","-","*","/","%","^","!":     //operator
                 break
-            case 40,41,91,93,123,125:   //parenthesis, bracket, brace
+            case "(",")","[","]","{","}":   //parenthesis, bracket, brace
                 break
             default:                    //anything else is an illegal operation
                 return true
             }
         }
+        
+        //check that the last character isn't an operator
+        if !infix.isEmpty {
+            if e.isOperator(symbol: infix.characters.last!) {
+                return true
+            }
+        }
+        
+        
+        //check that there arent two operators in a row
+        
         
         //if you've made it this far, you're golden
         return false
